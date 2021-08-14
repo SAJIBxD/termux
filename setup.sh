@@ -32,6 +32,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 
 #installing python3
 pkg install python
+python -m pip install --upgrade pip
 pip install youtube-dl
 
 #setting desktop 
