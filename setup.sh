@@ -19,7 +19,7 @@ pkg install -y git
 pkg install -y neovim termux-api
 
 #setting desktop 
-cp -rf $HOME/termux-desktop-lxqt/.config $HOME
+cp -rf $HOME/termux/.config $HOME
 
 termux-setup-storage
 ln -s $HOME/storage/music $HOME/Music
