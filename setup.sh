@@ -16,7 +16,7 @@ pkg update && pkg upgrade
 
 pkg install -y git
 
-pkg install -y neovim termux-api
+pkg install -y htop neofetch fzf neovim termux-api
 
 #setting desktop 
 cp -rf $HOME/termux/.config $HOME
