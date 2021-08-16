@@ -41,4 +41,4 @@ cp -rf $HOME/termux/.config $HOME
 termux-setup-storage
 ln -s $HOME/storage/music $HOME/Music
 
-mv zshrc ~/.zshrc
+mv $HOME/termux/zshrc ~/.zshrc
