@@ -48,4 +48,4 @@ mv $HOME/termux/zshrc ~/.zshrc
 #music player daemon
 pkg i mpd ncmpcpp
 mkdir -p /data/data/com.termux/files/usr/var/run/
-
+mkdir -p ~/.config/mpd/playlists
