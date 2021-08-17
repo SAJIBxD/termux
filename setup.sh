@@ -39,7 +39,7 @@ pip install youtube-dl
 cp -rf $HOME/termux/.config $HOME
 
 termux-setup-storage
-ln -s $HOME/storage/music $HOME/Music
+#ln -s $HOME/storage/music $HOME/Music
 
 mv $HOME/termux/zshrc ~/.zshrc
 
