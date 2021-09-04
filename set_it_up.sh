@@ -2,6 +2,25 @@
 
 SCRIPT_DIR=$(pwd)
 
+setup_color() {
+	# Only use colors if connected to a terminal
+	if [ -t 1 ]; then
+		RED=$(printf '\033[31m')
+		GREEN=$(printf '\033[32m')
+		YELLOW=$(printf '\033[33m')
+		BLUE=$(printf '\033[34m')
+		BOLD=$(printf '\033[1m')
+		RESET=$(printf '\033[m')
+	else
+		RED=""
+		GREEN=""
+		YELLOW=""
+		BLUE=""
+		BOLD=""
+		RESET=""
+	fi
+}
+
 setup () {
   pkg update && pkg upgrade 
   pkg install -y git htop neofetch fzf neovim termux-api
@@ -41,7 +60,7 @@ copy_files_and_create_dirs () {
   
   cp -rf $SCRIPT_DIR/.config $HOME
 }
-
+setup_color
 setup
 install_mpd
 install_zsh_and_ohmyzsh
