@@ -1,4 +1,4 @@
-# .dotfiles for Termux
+# dotfiles for Termux
 
 
 # Installation
