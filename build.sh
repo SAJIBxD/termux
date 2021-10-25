@@ -45,6 +45,9 @@ install_zsh_and_ohmyzsh () {
 
   # Install zsh-syntax-highlighting plugin
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  
+  #add plugins to zshrc
+  sed -i 's/\(^plugins=([^)]*\)/\1 zsh-autosuggestions zsh-syntax-highlighting/' ~/.zshrc
 }
 
 install_other_dependencies () {
