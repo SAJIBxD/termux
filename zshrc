@@ -143,3 +143,12 @@ bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 # lxterminal doesnt detect diff between backspace and ctrl + backspace
 #bindkey "^?" backward-kill-word
+
+#qq to exit 
+bindkey -v
+function exitshell () {
+	exit
+}
+zle -N exitshell
+bindkey -M vicmd "qq" exitshell
+bindkey -M viins "qq" exitshell
