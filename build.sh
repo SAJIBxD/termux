@@ -62,6 +62,7 @@ copy_files_and_create_dirs () {
   mkdir -p ~/.config/mpd/playlists
   
   cp -rf $SCRIPT_DIR/.config $HOME
+  cp -rf $SCRIPT_DIR/bin $HOME
 }
 setup_color
 setup
