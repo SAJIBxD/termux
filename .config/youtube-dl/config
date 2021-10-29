@@ -1,1 +1,1 @@
---no-mtime -o /sdcard/youtube-dl/%(title)s.%(ext)s
+--no-mtime -f 'bestvideo[height<=720,ext=mp4]+bestaudio[ext=m4a]' -o /sdcard/youtube-dl/%(title)s.%(ext)s
