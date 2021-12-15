@@ -26,8 +26,8 @@ setup () {
   pkg install -y git htop neofetch fzf neovim termux-api
   termux-setup-storage
   
-}echo "${BLUE}Stroage Permission Granted${RESET}"
-
+echo "${BLUE}Stroage Permission Granted${RESET}"
+} 
 install_mpd () {
   pkg i mpd ncmpcpp
 }
@@ -77,10 +77,10 @@ install_other_dependencies
 copy_files_and_create_dirs
 
 cat << EOF
-__        __   _                               _                          _
-\ \      / /__| | ___ ___  _ __ ___   ___     | |__   ___  _ __ ___   ___| |
- \ \ /\ / / _ \ |/ __/ _ \| '_ \` _ \ / _ \    | '_ \ / _ \| '_ \` _ \ / _ \ |
-  \ V  V /  __/ | (_| (_) | | | | | |  __/    | | | | (_) | | | | | |  __/_|
-   \_/\_/ \___|_|\___\___/|_| |_| |_|\___|    |_| |_|\___/|_| |_| |_|\___(_)
+__        __   _                             _                        
+\ \      / /__| | ___ ___  _ __ ___   ___   | |
+ \ \ /\ / / _ \ |/ __/ _ \| '_ \` _ \ / _ \ | |
+  \ V  V /  __/ | (_| (_) | | | | | |  __/  | |
+   \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  (_)
 EOF
 exit 0
