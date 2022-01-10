@@ -1,0 +1,9 @@
+
+#qq to exit 
+bindkey -v
+function exitshell () {
+	exit
+}
+zle -N exitshell
+bindkey -M vicmd "qq" exitshell
+bindkey -M viins "qq" exitshell

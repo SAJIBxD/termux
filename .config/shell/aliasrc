@@ -1,0 +1,10 @@
+alias h="history"
+alias p="pwd -P"
+alias s="sudo -s"
+alias CD="cd"
+alias hc='herbstclient'
+alias netprocs="lsof -P -i -n"
+alias up="pkg update && pkg upgrade"
+alias q="exit"
+alias dl="youtube-dl"
+alias vim="nvim"
