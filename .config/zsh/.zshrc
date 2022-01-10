@@ -15,6 +15,7 @@ ZSH_THEME="robbyrussell"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+HISTFILE=~/.cache/zsh/history
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
