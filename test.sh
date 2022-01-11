@@ -1,7 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 ### FUNCTIONS ###
-function install_zsh() {
+
+install_zsh() {
 	if ! [ -x "$(command -v zsh)" ]; then
 		echo -e "\\e[32m[ zsh ]\\e[m not found, installing"
 		apt-get install -y zsh >/dev/null 2>&1
@@ -38,7 +39,7 @@ function install_zsh() {
 
 }
 
-function ask() {
+ask() {
 	# https://djm.me/ask
 	local prompt default reply
 
