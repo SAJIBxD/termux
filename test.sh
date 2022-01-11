@@ -37,4 +37,37 @@ function install_zsh() {
 	 chsh -s zsh
 
 }
+
+function ask() {
+	# https://djm.me/ask
+	local prompt default reply
+
+	while true; do
+
+		if [ "${2:-}" = "Y" ]; then
+			prompt="Y/n"
+			default=Y
+		elif [ "${2:-}" = "N" ]; then
+			prompt="y/N"
+			default=N
+		else
+			prompt="y/n"
+			default=
+		fi
+
+		echo -e -n "$1 [$prompt] "
+		read -r reply </dev/tty
+
+		if [ -z "$reply" ]; then
+			reply=$default
+		fi
+
+		case "$reply" in
+		Y* | y*) return 0 ;;
+		N* | n*) return 1 ;;
+		esac
+
+	done
+}
+
 install_zsh
