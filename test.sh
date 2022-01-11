@@ -6,7 +6,7 @@ install_zsh() {
 		echo -e "\\e[32m[ zsh ]\\e[m not found, installing"
 		apt-get install -y zsh >/dev/null 2>&1
 	fi
-	if [ ! -d "${ZSH:-~/.oh-my-zsh}" ]; then
+	if [ ! -d "$ZSH" ]; then
 		echo -e "\\e[32m[ oh-my-zsh ]\\e[m clonning repository"
 		sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >/dev/null
 	else
@@ -16,7 +16,7 @@ install_zsh() {
 		fi
 	fi
 	
-	if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && [ ! -d "$ZSH/plugins/zsh-syntax-highlighting" ]; then
+	if [ ! -d "$ZSH/plugins/zsh-syntax-highlighting" ] && [ ! -d "$ZSH/custom/plugins/zsh-syntax-highlighting" ]; then
 		if ask "\\e[32m[ oh-my-zsh ]\\e[m enable syntax highlighting?" Y; then
 			echo -e "\\e[32m[ oh-my-zsh ]\\e[m downloading plugin"
 			git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting --quiet >/dev/null
@@ -25,7 +25,7 @@ install_zsh() {
 		#sed -i '4s/.*/plugins=(git)/' "$HOME/.zshrc"
 	fi
 
-	if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ] && [ ! -d "$ZSH/plugins/zsh-autosuggestions" ]; then
+	if [ ! -d "$ZSH/plugins/zsh-autosuggestions" ] && [ ! -d "$ZSH/custom/plugins/zsh-autosuggestions" ]; then
 		if ask "\\e[32m[ oh-my-zsh ]\\e[m enable autosuggestions?" Y; then
 			echo -e "\\e[32m[ oh-my-zsh ]\\e[m downloading plugin"
 			git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions --quiet >/dev/null
