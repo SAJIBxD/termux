@@ -7,12 +7,12 @@ install_zsh() {
 		echo -e "\\e[32m[ zsh ]\\e[m not found, installing"
 		apt-get install -y zsh >/dev/null 2>&1
 	fi
-	if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	if [ ! -d "${ZSH:-~/.oh-my-zsh}" ]; then
 		echo -e "\\e[32m[ oh-my-zsh ]\\e[m clonning repository"
 		sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >/dev/null
 	else
 		if ask "\\e[32m[ oh-my-zsh ]\\e[m configs found, overwrite?" Y; then
-			rm -rf "$HOME/.oh-my-zsh"
+			rm -rf "${ZSH:-~/.oh-my-zsh}"
 			sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >/dev/null
 		fi
 	fi
