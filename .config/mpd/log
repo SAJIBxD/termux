@@ -1,0 +1,15 @@
+Jan 23 01:07 : exception: Failed to open '/data/data/com.termux/files/home/.mpd/state': No such file or directory
+Jan 23 01:07 : exception: Failed to open '/data/data/com.termux/files/home/.mpd/state': No such file or directory
+Jan 23 01:09 : exception: Failed to create /data/data/com.termux/files/home/.mpd/state: No such file or directory
+Jan 23 01:09 : exception: Failed to create /data/data/com.termux/files/home/.mpd/state: No such file or directory
+Jan 23 01:09 : exception: Failed to open '/data/data/com.termux/files/home/.config/mpd/state': No such file or directory
+Jan 23 01:09 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 23 01:10 : update: added Android/data/com.silverlab.app.deviceidchanger.free/files/vast_rtb_cache/httpcdn.liftoff.iocustomersb1701581a6videosmobile3388ffa3d12980a393bb.mp4
+Jan 23 01:11 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 23 01:14 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 23 01:19 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 23 01:27 : player: played "/data/data/com.termux/files/home/storage/downloads/My recording 1.wav"
+Jan 23 01:27 : config: inotify: auto_update was disabled. enable during compilation phase
+Jan 23 01:27 : update: added /WHITENO1SE & Ranji  Ft. Nina Nesbitt - The Moments I'm Missing  (Radio Edit) [otxSf5gsCNY].m4a
+[ALSOFT] (EE) Failed to set real-time priority for thread: Operation not permitted (1)
+Jan 23 01:32 : player: played "WHITENO1SE & Ranji  Ft. Nina Nesbitt - The Moments I'm Missing  (Radio Edit) [otxSf5gsCNY].m4a"
