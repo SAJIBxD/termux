@@ -1,0 +1,21 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+alias h="history"
+alias q="exit"
+alias CD="cd"
+alias up="pkg update && pkg upgrade"
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Quick edit
+alias zshrc="vim ~/.zshrc"
+
+#exit shortcut
+bindkey -v
+function exitshell () {
+	exit
+}
+zle -N exitshell
+bindkey -M vicmd "qq" exitshell
+bindkey -M viins "qq" exitshell
