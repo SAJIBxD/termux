@@ -7,15 +7,14 @@ alias q="exit"
 alias CD="cd"
 alias up="pkg update && pkg upgrade"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
+alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | termux-clipboard-set"
+alias ytdl="youtube-dl -o '/sdcard/ytdl/%(title)s.%(ext)s'"
+alias aliases="vim ~/.config/shell/aliases"
 # Quick edit
 alias zshrc="vim ~/.zshrc"
 
-#exit shortcut
-bindkey -v
-function exitshell () {
-	exit
-}
+# FUNCTIONS
+# Exit shortcut
+exitshell() { exit }
 zle -N exitshell
-bindkey -M vicmd "qq" exitshell
-bindkey -M viins "qq" exitshell
+bindkey 'qq' exitshell
