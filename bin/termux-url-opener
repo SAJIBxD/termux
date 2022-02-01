@@ -1,1 +1,1 @@
-yt-dlp $1
+yt-dlp -o '/sdcard/ytdl/%(title)s.%(ext)s $1
