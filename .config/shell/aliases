@@ -1,7 +1,18 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 # Use neovim for vim if present.
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+if [ -x "$(command -v nvim)" ]; then
+    alias vim="nvim"
+    alias vimdiff="nvim -d"
+fi
+# exa as a replacement for colorls
+if [ -x "$(command -v exa)" ]; then
+    alias ls="exa --icons"
+    alias la="exa --icons -lgha"
+    alias lt="exa --icons --tree"
+    alias lta="exa --icons --tree -lgha"
+fi
+
 alias h="history"
 alias q="exit"
 alias CD="cd"
@@ -9,11 +20,13 @@ alias up="pkg update && pkg upgrade"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | termux-clipboard-set"
 alias ytdl="youtube-dl -o '/sdcard/ytdl/%(title)s.%(ext)s'"
-alias aliases="vim ~/.config/shell/aliases"
+
 # Quick edit
 alias zshrc="vim ~/.zshrc"
+alias aliases="vim ~/.config/shell/aliases"
 
 # FUNCTIONS
+
 # Exit shortcut
 exitshell() { exit }
 zle -N exitshell
