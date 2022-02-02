@@ -74,12 +74,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # The file where the history is stored
 HISTFILE="$HOME/.zsh_history"
-
 # Number of events loaded into memory
 HISTSIZE=10000
 # Number of events stored in the zsh history file
 SAVEHIST=10000
-
 # Do not save duplicate commands to history
 setopt HIST_IGNORE_ALL_DUPS
 # Do not find duplicate command when searching
@@ -95,7 +93,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+export PATH="$HOME/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
