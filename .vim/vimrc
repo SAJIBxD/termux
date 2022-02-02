@@ -1,0 +1,6 @@
+set termguicolors
+set encoding=utf-8
+set number 
+set number relativenumber 
+set autoindent
+colorscheme onedark 

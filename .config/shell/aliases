@@ -10,7 +10,7 @@ if [ -x "$(command -v exa)" ]; then
     alias ls="exa --icons"
     alias la="exa --icons -lgha"
     alias lt="exa --icons --tree"
-    alias lta="exa --icons --tree -lgha"
+    alias lta="exa --icons --tree -a"
 fi
 
 alias h="history"
