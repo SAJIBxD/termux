@@ -1,16 +1,18 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
+pkg remove game-repo
+pkg remove science-repo
 pkg upgrade
 # Required packages
-pkg install -y git python fzf zsh exa rsync termux-api termux-tools ncurses-utils openssl-tool
+pkg install -y git python fzf zsh rsync termux-api termux-tools ncurses-utils openssl-tool
 # Optinal packages
-pkg install -y mpd mpc ncmpcpp cava vim ranger
+pkg install -y vim ranger
 
 # Storare permission
 termux-setup-storage
 
 # Pip packages
-pip install -U yt-dlp
+pip install -U youtube-dl
 
 # Git repos
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
