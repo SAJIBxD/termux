@@ -19,10 +19,12 @@ alias CD="cd"
 alias up="pkg upgrade"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | termux-clipboard-set"
+# Youtube downloader
+alias ytdl="yt-dlp -o '/sdcard/ytdl/%(title)s.%(ext)s'"
+alias ytadl="yt-dlp -f 140 -o '/sdcard/Music/%(title)s.%(ext)s'"
+alias ytbdl="yt-dlp -f bestvideo+bestaudio -o '/sdcard/ytdl/%(title)s.%(ext)s'"
 alias yt="yt-dlp"
-alias ytdl="yt -o '/sdcard/ytdl/%(title)s.%(ext)s'"
-alias ytadl="yt -f 140 -o '/sdcard/Music/%(title)s.%(ext)s'"
-
+alias xdl="wget -r --no-parent --reject 'index.html*'"
 # Quick edit
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vim/vimrc"
