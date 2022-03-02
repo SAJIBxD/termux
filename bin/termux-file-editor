@@ -1,1 +1,9 @@
-nvim $1
+#!/data/data/com.termux/files/usr/bin/sh
+
+if [ "${1##*.}" = "apk" ]; then
+    cd ~/apks
+    apktool decode "$1"
+elif [ "${1##*.}" = "pdf" ]; then
+    papis add "$1"
+elif nvim $1
+fi
