@@ -19,6 +19,7 @@ alias CD="cd"
 alias up="pkg upgrade"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | termux-clipboard-set"
+alias fetch="neofetch --ascii_colors 999999 --ascii .config/neofetch/ascii_art_br"
 # Youtube downloader
 alias ytdl="yt-dlp -o '/sdcard/ytdl/%(title)s.%(ext)s'"
 alias ytadl="yt-dlp -f 140 -o '/sdcard/Music/%(title)s.%(ext)s'"
