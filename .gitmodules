@@ -1,9 +1,3 @@
-[submodule "/data/data/com.termux/files/home/.config/ranger/plugins/ranger_devicons"]
-	path = /data/data/com.termux/files/home/.config/ranger/plugins/ranger_devicons
-	url = https://github.com/alexanderjeurissen/ranger_devicons
-[submodule "st"]
-	path = st
-	url = https://github.com/HossainRizbi/st
 [submodule ".config/ranger/plugins/ranger_devicons"]
 	path = .config/ranger/plugins/ranger_devicons
 	url = https://github.com/alexanderjeurissen/ranger_devicons
