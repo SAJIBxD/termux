@@ -8,7 +8,7 @@
     $ git clone --recurse-submodules https://github.com/hossainrizbi/termux.git dotfiles
     $ cd dotfiles && git submodule update --remote --merge
    ```
-   After cloneing the repository you can manually move them to config location or use [rsync](https://rsync.samba.org)
+   Now you can manually move them to config location or use [rsync](https://rsync.samba.org)
    ```sh
-    $ rsync --recursive --verbose --exclude={'.git'.'.github'} ~/dotfiles/ $HOME/
+    $ rsync --recursive --verbose --exclude={'.git','.github'} ~/dotfiles/ $HOME/
    ```
