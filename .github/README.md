@@ -5,6 +5,10 @@
 
    > Make sure to have [Git](https://git-scm.com/) installed.
    ```sh
-    $ git clone --recurse-submodules https://github.com/hossainrizbi/termux.git
+    $ git clone --recurse-submodules https://github.com/hossainrizbi/termux.git dotfiles
     $ cd dotfiles && git submodule update --remote --merge
+   ```
+   After cloneing the repository you can manually move them to config location or use [rsync](https://rsync.samba.org)
+   ```sh
+    $ rsync --recursive --verbose --exclude={'.git'.'.github'} ~/dotfiles/ $HOME/
    ```
