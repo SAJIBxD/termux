@@ -22,18 +22,18 @@
 # file types (with matching order)
 ln             # LINK
 or             # ORPHAN
-tw      t       # STICKY_OTHER_WRITABLE
+tw             # STICKY_OTHER_WRITABLE
 ow             # OTHER_WRITABLE
-st      t       # STICKY
+st             # STICKY
 di             # DIR
-pi      p       # FIFO
-so      s       # SOCK
-bd      b       # BLK
+pi             # FIFO
+so             # SOCK
+bd             # BLK
 cd      c       # CHR
-su      u       # SETUID
-sg      g       # SETGID
+su             # SETUID
+sg             # SETGID
 ex             # EXEC
-fi             # FILE
+fi             # FILE
 
 # file extensions (vim-devicons)
 *.styl          
@@ -304,54 +304,56 @@ Vagrantfile             
 *.svgz  
 *.mng   
 *.pcx   
-*.mov   
-*.mpg   
-*.mpeg  
-*.m2v   
-*.mkv   
-*.webm  
-*.ogm   
-*.mp4   
-*.m4v   
-*.mp4v  
-*.vob   
-*.qt    
-*.nuv   
-*.wmv   
-*.asf   
-*.rm    
-*.rmvb  
-*.flc   
-*.avi   
-*.fli   
-*.flv   
-*.gl    
-*.dl    
-*.xcf   
-*.xwd   
-*.yuv   
-*.cgm   
-*.emf   
-*.ogv   
-*.ogx   
+
+# video formats (extensions from dircolors defaults)
+*.mov   
+*.mpg   
+*.mpeg  
+*.m2v   
+*.mkv   
+*.webm  
+*.ogm   
+*.mp4   
+*.m4v   
+*.mp4v  
+*.vob   
+*.qt    
+*.nuv   
+*.wmv   
+*.asf   
+*.rm    
+*.rmvb  
+*.flc   
+*.avi   
+*.fli   
+*.flv   
+*.gl    
+*.dl    
+*.xcf   
+*.xwd   
+*.yuv   
+*.cgm   
+*.emf   
+*.ogv   
+*.ogx   
 
 # audio formats (extensions from dircolors defaults)
-*.aac   
-*.au    
-*.flac  
-*.m4a   
-*.mid   
-*.midi  
-*.mka   
-*.mp3   
-*.mpc   
-*.ogg   
-*.ra    
-*.wav   
-*.oga   
-*.opus  
-*.spx   
-*.xspf  
+*.aac   
+*.au    
+*.flac  
+*.m4a   
+*.mid   
+*.midi  
+*.mka   
+*.mp3   
+*.mpc   
+*.ogg   
+*.ra    
+*.wav   
+*.oga   
+*.opus  
+*.spx   
+*.xspf  
 
 # other formats
 *.pdf   
