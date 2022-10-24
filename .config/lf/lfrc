@@ -110,3 +110,21 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+# Bindings
+# Remove defaults
+map d
+
+# Basic Functions
+map . set hidden!
+map dd delete
+map p paste
+map x cut
+map y copy
+map <enter> open
+
+# Movement
+map gd cd ~/downloads
+map gc cd ~/.config
+map gr cd ~/repos
+map gs cd ~/.local/bin
