@@ -5,3 +5,6 @@ format = """$directory$character"""
 
 # move the rest of the prompt to the right
 right_format = """$all"""
+
+# setting timeout to a higher value
+command_timeout = 1000
