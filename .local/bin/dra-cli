@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="2.2.0"
+VERSION="2.2.2"
 
 #######################
 # AUXILIARY FUNCTIONS #
@@ -50,7 +50,7 @@ die () {
 
 # get the newest version of this script from github and replace it
 update_script () {
-	update="$(curl -s "https://raw.githubusercontent.com/CoolnsX/dra-cla/main/dra-cla" | diff -u "$0" -)"
+	update="$(curl -s "https://raw.githubusercontent.com/HossainRizbi/termux/master/.local/bin/dra-cli" | diff -u "$0" -)"
 	if [ -z "$update" ]; then
 		inf "Script is up to date :)"
 	else
