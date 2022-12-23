@@ -17,7 +17,7 @@ alias h="history"
 alias q="exit"
 alias CD="cd"
 alias up="pkg upgrade"
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dots='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | termux-clipboard-set"
 alias fetch="neofetch --ascii_colors 999999 --ascii .config/neofetch/ascii_art_br"
 # Youtube downloader
@@ -32,6 +32,10 @@ alias vimrc="vim ~/.vim/vimrc"
 alias aliases="vim ~/.config/shell/aliases"
 
 # FUNCTIONS
+upload() {
+curl -s https://0x0.st -F "file=@$*" | termux-clipboard-set && termux-toast "Link copied to clipboard";
+}
+
 # Exit shortcut
 exitshell() { exit }
 zle -N exitshell
