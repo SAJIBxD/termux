@@ -458,7 +458,7 @@ done
 shift $((OPTIND - 1))
 
 dep_ch "curl" "sed" "grep" "openssl"
-if [ "$is_download" -eq 0 ]; then
+if [ "$is_download" -eq 0 ] && ! (uname -a | grep -qE '[Aa]ndroid'); then
 	dep_ch "$player_fn"
 else
 	dep_ch "axel" "ffmpeg"
