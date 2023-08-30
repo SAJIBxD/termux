@@ -3,7 +3,7 @@
 pager() {
 	if command -v bat > /dev/null 2>&1
 	then
-	bat --color=always -pp "$1" "$@"
+	bat --color=always -pp "$@"
 	else
 	cat "$1"
 	fi
