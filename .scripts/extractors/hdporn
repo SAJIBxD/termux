@@ -1,0 +1,10 @@
+#!/bin/sh
+
+agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+#
+printf "\033[1;36m[ hdporn92 ] Downloading webpage\n"
+resp="$(curl -s -A "$agent" "$1" | sed -n 's/.*src="\(https:\/\/[dood|dooood].[^"]*\)".*/\1/p')"
+
+dood_id=$(printf "%s" "$resp" | sed -n '/doo/p')
+echo $dood_id
+[ -z "$dood_id" ] || $(printf "$0" | sed 's_/[^/]*$__')/doodstream "$dood_id"

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#for extracting links from fembed
+
+#user agent
+agent="Mozilla/5.0 (Linux; Android 11; moto g(9) power) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.41 Mobile Safari/537.36"
+
+#extracting fembed id from arguments
+fb_id=$(printf "$*" | sed -nE "s_.*[fembed|embedsito].*/[v|f]/([^#]*).*_\1_p")
+
+[ -z "$fb_id" ] && printf "\033[1;31m[ fembed ] Invalid link\n" && exit 1
+
+printf "\033[1;36m[ fembed ] [ $fb_id ] Downloading webpage\n"
+#fetching title
+title=$(curl -s "$*" -A "$agent" | sed -nE "s|.*>(Video )?([^<]*)</title.*|\2|p")
+
+printf "\033[1;36m[ fembed ] [ $fb_id ] Fetching video url\n"
+#main logic
+video_url=$(curl -A "$agent" -s -X POST "https://fembed-hd.com/api/source/$fb_id" -H "x-requested-with:XMLHttpRequest" | tr '{|}' '\n' | sed -nE 's/.*file":"([^"]*)","label":"([^"]*)".*/\2 > \1/p' | tr -d '\\')
+
+if [ -n "$video_url" ];then
+    printf "\033[1;32m Name >>\033[0m %s\n" "$title"
+    printf "\033[1;32m referer >>\033[0m %s\n" "$*"
+    printf "\033[1;32m URL >>\033[0m\n%s\n" "$video_url"
+    printf "\n"
+else
+    printf "\033[1;32m[ fembed ] [ $fb_id ] Cannot fetch final url\033[0m\n\n"
+fi

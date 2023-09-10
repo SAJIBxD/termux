@@ -1,0 +1,45 @@
+#!/bin/sh
+
+[ -z "$1" ] && echo "No URL provided" && exit 1
+extractor_path="$HOME/.scripts/extractors"
+
+case "$1" in
+  *tiktok*)
+    $extractor_path/tiktok "$1"
+    ;;
+  *instagram*)
+    $extractor_path/instagram "$1"
+    ;;
+  *fembed*|*embedsito*)
+    $extractor_path/fembed "$1"
+    ;;
+  *dood*|*dooood*)
+    $extractor_path/doodstream "$1"
+    ;;
+  *youtu*)
+    $extractor_path/youtube "$1"
+    ;;
+  *membed*)
+    $extractor_path/membed "$1"
+    ;;
+  *gogo*)
+    $extractor_path/gogoanime "$1"
+    ;;
+  *flixhq*)
+    $extractor_path/flixhq "$1"
+    ;;
+  *zoro*)
+    $extractor_path/zoro "$1"
+    ;;
+  *rezka*)
+    $extractor_path/rezka "$1"
+    ;;
+  *hdporn92*)
+    $extractor_path/hdporn "$1"
+    ;;
+  *)
+    echo "Unsupported URL"
+    exit 1
+    ;;
+esac
+
