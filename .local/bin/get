@@ -1,7 +1,7 @@
 #!/bin/sh
 
 [ -z "$1" ] && echo "No URL provided" && exit 1
-extractor_path="$HOME/.scripts/extractors"
+extractor_path="$HOME/.local/scripts/extractors"
 
 case "$1" in
   *tiktok*)
