@@ -50,7 +50,7 @@ die () {
 
 # get the newest version of this script from github and replace it
 update_script () {
-	update="$(curl -s "https://raw.githubusercontent.com/HossainRizbi/termux/master/.local/bin/dra-cli" | diff -u "$0" -)"
+	update="$(curl -s "https://raw.githubusercontent.com/CoolnsX/dra-cla/main/dra-cla" | diff -u "$0" -)"
 	if [ -z "$update" ]; then
 		inf "Script is up to date :)"
 	else
@@ -68,7 +68,7 @@ dep_ch () {
 		if ! command -v "$dep" >/dev/null ; then
 			err "Program \"$dep\" not found. Please install it."
 			#aria2c is in the package aria2
-			[ "$dep" = "axel" ] && err "To install aria2c, Type <your_package_manager> axel"
+			[ "$dep" = "aria2c" ] && err "To install aria2c, Type <your_package_manager> aria2"
 			die
 		fi
 	done
@@ -79,7 +79,7 @@ case $2 in
 	*m3u8*)
 		ffmpeg -loglevel error -stats -referer "$1" -i "$2" -c copy "$download_dir/${3}${4}.mp4" ;;
 	*)
-		axel -a -k -n 10 --header=Referer:"$1" "$2" -o "$download_dir/${3}${4}.mp4" ;;
+		aria2c --summary-interval=0 -x 16 -s 16 --referer="$1" "$2" --dir="$download_dir" -o "${3}${4}.mp4" --download-result=hide ;;
 esac
 }
 
@@ -136,6 +136,12 @@ decrypt_link() {
 	fembed_id=$(curl -A "uwu" -s "$1" | sed -nE 's_.*fembed.*/v/([^#]*).*_\1_p')
 	[ -z "$fembed_id" ] || video_links=$(curl -A "uwu" -s -X POST "https://fembed9hd.com/api/source/$fembed_id" -H "x-requested-with:XMLHttpRequest" | sed -e 's/\\//g' -e 's/.*data"://' | tr "}" "\n" | sed -nE 's/.*file":"(.*)","label":"([^"]*)".*/\2>\1/p')
 	[ -z "$video_links" ] || return 0
+	dood_id=$(curl -A "uwu" -s "$1" | sed -nE 's_.*dood.*/e/([^?]*).*_\1_p')
+	[ -z "$dood_id" ] || data=$(curl -A "uwu" -s "https://dood.yt/d/$dood_id" | sed -n -E 's#.*<a href="/download/([^"/]+)/n/([^"]+)" class="[^"]*d-flex[^"]*".*#\2\/\1#p')
+	[ -z "$data" ] || link=$(curl -A "uwu" -s "https://dood.yt/pass_md5/${data}" --referer "https://dood.yt")
+	[ -z "$data" ] || token=$(echo $data | cut -d "/" -f2)
+	[ -z "$link" ] || video_links="${link}?token=${token}"
+	[ -n "$video_links" ] && dpage_link="https://dood.yt/" && return 0
 	secret_key='3933343232313932343333393532343839373532333432393038353835373532'
 	iv='39323632383539323332343335383235'
 	ajax_url="$base_url/encrypt-ajax.php"
@@ -374,11 +380,7 @@ play_episode () {
 			set -- "$@" --http-referrer="$dpage_link"
 			;;
 		*)
-		if uname -a | grep -qE '[Aa]ndroid';then
-			am start --user 0 -a android.intent.action.VIEW -d "$video_url" -n com.mxtech.videoplayer.pro/com.mxtech.videoplayer.pro.ActivityScreen -e title "${drama_id}${episode}" > /dev/null 2>&1 &
-		else
 			set -- "$@" --referrer="$dpage_link" --force-media-title="${drama_id}${episode}"
-		fi
 			;;
 	esac
 	# Run Command
@@ -456,15 +458,19 @@ while getopts 'vq:dp:chDUVa:' OPT; do
 	esac
 done
 shift $((OPTIND - 1))
-
+echo "Checking dependencies..."
 dep_ch "curl" "sed" "grep" "openssl"
-if [ "$is_download" -eq 0 ] && ! (uname -a | grep -qE '[Aa]ndroid'); then
-	dep_ch "$player_fn"
+if [ "$is_download" -eq 0 ]; then
+	#dep_ch "$player_fn"
+  #Player function disabled
+  echo "Checking of players on Android is disabled"
 else
-	dep_ch "axel" "ffmpeg"
+	dep_ch "aria2c" "ffmpeg"
 fi
 
-base_url="https://asianplay.net"
+# Get the current working URL
+base_url=$(curl -Ls -o /dev/null -w %{url_effective} https://asianhd1.com)
+
 case $scrape in
 	query)
 		if [ -z "$*" ]; then
