@@ -19,7 +19,7 @@ case "$1" in
   *youtu*)
     $extractor_path/youtube "$1"
     ;;
-  *membed*|*asianhd1*)
+  *membed*|*asianhd1*|*draplay*)
     $extractor_path/membed "$1"
     ;;
   *gogo*)
