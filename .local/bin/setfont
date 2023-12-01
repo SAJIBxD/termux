@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Specify font folder
+font_folder="$HOME/.local/share/fonts"
+
+# Check if fzf is installed
+if ! command -v fzf &> /dev/null; then
+    echo "fzf is not installed. Please install it."
+    exit 1
+fi
+
+# Use fzf to select a font
+selected_font=$(find "$font_folder" -type f -name "*.ttf" -exec basename {} \;| fzf)
+
+# Check if a font was selected
+if [ -z "$selected_font" ]; then
+    echo "No font selected. Exiting."
+    exit 1
+fi
+
+# Set the selected font
+cp "$font_folder/$selected_font" ~/.termux/font.ttf
+echo "Font set successfully."
