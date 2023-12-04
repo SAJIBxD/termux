@@ -1,1 +1,1 @@
--o ~/storage/downloads/%(title)s.%(ext)s
+-P "/sdcard/Download" -o "%(title)s.%(ext)s"

@@ -1,41 +1,53 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 # Use neovim for vim if present.
-if [ -x "$(command -v nvim)" ]; then
-    alias vim="nvim"
-    alias vimdiff="nvim -d"
-fi
-# exa as a replacement for colorls
-if [ -x "$(command -v exa)" ]; then
-    alias ls="exa --icons"
-    alias la="exa --icons -lgha"
-    alias lt="exa --icons --tree"
-    alias lta="exa --icons --tree -a"
+if (( $+commands[nvim] )); then
+  alias vim="nvim"
+  alias view="nvim -R"
+  alias vimdiff="nvim -d"
 fi
 
+# exa as a replacement for colors
+if (( $+commands[exa] )); then
+  alias ls='exa --icons' # replace ls
+  alias l='ls -lbF' # list, size, type
+  alias ll='ls -la' # long list
+  alias llm='ll --sort=modified' # long list, sort
+  alias la='ls -lbhHigUmuSa' # all list
+  alias lx='ls -lbhHigUmuSa@' # all + extended list
+  alias tree='exa --tree --level=2' # tree view
+  alias lS='exa -1' # one column, just names
+fi
+
+# Common aliases
 alias h="history"
 alias q="exit"
 alias CD="cd"
 alias up="pkg upgrade"
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | termux-clipboard-set"
-alias fetch="neofetch --ascii_colors 999999 --ascii .config/neofetch/ascii_art_br"
+
 # Youtube downloader
-alias ytdl="yt-dlp -o '/sdcard/ytdl/%(title)s.%(ext)s'"
-alias ytadl="yt-dlp -f 140 -o '/sdcard/Music/%(title)s.%(ext)s'"
-alias ytbdl="yt-dlp -f bestvideo+bestaudio -o '/sdcard/ytdl/%(title)s.%(ext)s'"
-alias yt="yt-dlp"
+alias ytdl="yt-dlp"
+alias ytadl="ytdl -f 140 -P '/sdcard/Music/'"
+alias ytbdl="ytdl -f bestvideo+bestaudio"
+# Download the whole dir
 alias xdl="wget -r --no-parent --reject 'index.html*'"
+
 # Quick edit
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vim/vimrc"
-alias aliases="vim ~/.config/shell/aliases"
+alias aliases="vim ~/.config/zsh/aliases"
 
-# FUNCTIONS
+## Varriables
+# ani-cli
+ANI_CLI_DOWNLOAD_DIR="/sdcard/Download/"
+
+## FUNCTIONS
+# File upload
 upload() {
 curl -s https://0x0.st -F "file=@$*" | termux-clipboard-set && termux-toast "Link copied to clipboard";
 }
-
 # Exit shortcut
 exitshell() { exit }
 zle -N exitshell
