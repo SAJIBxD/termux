@@ -14,5 +14,5 @@
    ```
    Or 
    ```sh
-   $ sh -c ($curl -fsSL https://raw.githubusercontent.com/SAJIBxD/termux/refs/heads/main/setup.sh)
+   $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/SAJIBxD/termux/refs/heads/main/setup.sh)"
    ```
