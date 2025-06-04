@@ -12,3 +12,7 @@
    ```sh
     $ rsync --recursive --verbose --exclude=.git* ~/dotfiles/ $HOME/
    ```
+   Or 
+   ```sh
+   $ sh -c ($curl -fsSL https://raw.githubusercontent.com/SAJIBxD/termux/refs/heads/main/setup.sh)
+   ```
