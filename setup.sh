@@ -1,3 +1,4 @@
+
 #!/data/data/com.termux/files/usr/bin/sh
 
 pkg upgrade
@@ -30,7 +31,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 chsh -s zsh
 
 # Dotfiles
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/HossainRizbi/termux.git tmpdotfiles
+git clone --separate-git-dir=$HOME/.cfg https://github.com/SAJIBxD/termux.git tmpdotfiles
 # Copy all files except the .git folder
 cp -a tmpdotfiles/. "$HOME/"
 mv .zshrc $HOME/.config/zsh/
