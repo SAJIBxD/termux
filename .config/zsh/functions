@@ -1,0 +1,24 @@
+# Convert to HEVC
+con2hevc() {
+    if [ -f "$1" ]; then
+        ffmpeg -i "$1" -c:v libx265 -vtag hvc1 -c:a copy "new-$1"
+    else
+        echo "Input file '$1' not found"
+    fi
+}
+
+# Generate URL list from spidering
+url_gen() {
+    wget -e robots=off --spider --recursive --no-parent --no-directories --reject "index.html*" "$@" 2>&1 \
+    | grep -E '^--' | awk '{ print $3 }'
+}
+
+# Upload file
+upload() {
+    curl -s https://0x0.st -F "file=@$*" | termux-clipboard-set && termux-toast "Link copied to clipboard"
+}
+
+# Exit shortcut [Zsh-only]
+exitshell() { exit }
+zle -N exitshell
+bindkey 'qq' exitshell
