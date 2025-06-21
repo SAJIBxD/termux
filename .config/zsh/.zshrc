@@ -102,6 +102,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+# Source exports
+source $HOME/.config/zsh/exports
+
 # Source aliases
 source $HOME/.config/zsh/aliases
 

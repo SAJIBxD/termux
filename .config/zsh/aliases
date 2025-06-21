@@ -1,12 +1,13 @@
-# Conditional aliases
-# Use neovim for vim if present
+#!/data/data/com.termux/files/usr/bin/sh
+
+# Use neovim for vim if present.
 if (( $+commands[nvim] )); then
   alias vim="nvim"
   alias view="nvim -R"
   alias vimdiff="nvim -d"
 fi
 
-# exa as a replacement for ls
+# exa as a replacement for colors
 if (( $+commands[exa] )); then
   alias ls='exa --icons' # replace ls
   alias l='ls -lbF' # list, size, type
@@ -35,7 +36,6 @@ alias xdl="wget -r --no-parent --reject 'index.html*'"
 
 # Convert files
 alias convert2hevc='ffmpeg -stats_period 10 -i "$1" -c:v libx265 -vtag hvc1 -c:a copy "new-$1"'
-
 # Quick edit
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vim/vimrc"
@@ -48,4 +48,23 @@ alias wget="wget --hsts-file='~/.cache/wget-hsts'"
 # ani-cli
 ANI_CLI_DOWNLOAD_DIR="/sdcard/Download/"
 
+## FUNCTIONS
+con2hevc() {
+    if [ -f "$1" ]; then
+        ffmpeg -i "$1" -c:v libx265 -vtag hvc1 -c:a copy "new-$1"
+    else
+        echo "Input file '$1' not found"
+    fi
+}
 
+url_gen() {
+wget -e robots=off --spider --recursive --no-parent --no-directories --reject "index.html*" "$*" 2>&1 | grep -E '^--' | awk '{ print $3 }'
+}
+# File upload
+upload() {
+curl -s https://0x0.st -F "file=@$*" | termux-clipboard-set && termux-toast "Link copied to clipboard";
+}
+# Exit shortcut
+exitshell() { exit }
+zle -N exitshell
+bindkey 'qq' exitshell
