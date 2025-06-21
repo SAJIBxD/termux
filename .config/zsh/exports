@@ -1,1 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+# XDG Base Directory Specification
 export XDG_CONFIG_HOME="$HOME/.config"
+
+
+
+## Variables
+# ani-cli
+ANI_CLI_DOWNLOAD_DIR="/sdcard/Download/"

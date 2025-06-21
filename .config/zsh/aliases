@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
-# Use neovim for vim if present.
+# Use neovim for vim if present
 if (( $+commands[nvim] )); then
   alias vim="nvim"
   alias view="nvim -R"
@@ -9,14 +9,14 @@ fi
 
 # exa as a replacement for colors
 if (( $+commands[exa] )); then
-  alias ls='exa --icons' # replace ls
-  alias l='ls -lbF' # list, size, type
-  alias ll='ls -la' # long list
+  alias ls='exa --icons'        # replace ls
+  alias l='ls -lbF'             # list, size, type
+  alias ll='ls -la'             # long list
   alias llm='ll --sort=modified' # long list, sort
-  alias la='ls -lbhHigUmuSa' # all list
-  alias lx='ls -lbhHigUmuSa@' # all + extended list
+  alias la='ls -lbhHigUmuSa'    # all list
+  alias lx='ls -lbhHigUmuSa@'   # all + extended list
   alias tree='exa --tree --level=2' # tree view
-  alias lS='exa -1' # one column, just names
+  alias lS='exa -1'             # one column, just names
 fi
 
 # Common aliases
@@ -41,28 +41,20 @@ alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vim/vimrc"
 alias aliases="vim ~/.config/zsh/aliases"
 
-# Clean up 
+# Clean up
 alias wget="wget --hsts-file='~/.cache/wget-hsts'"
-
-## Varriables
-# ani-cli
-ANI_CLI_DOWNLOAD_DIR="/sdcard/Download/"
 
 ## FUNCTIONS
 con2hevc() {
-    if [ -f "$1" ]; then
-        ffmpeg -i "$1" -c:v libx265 -vtag hvc1 -c:a copy "new-$1"
-    else
-        echo "Input file '$1' not found"
-    fi
+    [ -f "$1" ] && ffmpeg -i "$1" -c:v libx265 -vtag hvc1 -c:a copy "new-$1" || echo "Input file '$1' not found"
 }
 
 url_gen() {
-wget -e robots=off --spider --recursive --no-parent --no-directories --reject "index.html*" "$*" 2>&1 | grep -E '^--' | awk '{ print $3 }'
+    wget -e robots=off --spider --recursive --no-parent --no-directories --reject "index.html*" "$*" 2>&1 | grep -E '^--' | awk '{ print $3 }'
 }
 # File upload
 upload() {
-curl -s https://0x0.st -F "file=@$*" | termux-clipboard-set && termux-toast "Link copied to clipboard";
+    curl -s https://0x0.st -F "file=@$*" | termux-clipboard-set && termux-toast "Link copied to clipboard"
 }
 # Exit shortcut
 exitshell() { exit }
