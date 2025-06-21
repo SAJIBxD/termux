@@ -1,14 +1,13 @@
-
 #!/data/data/com.termux/files/usr/bin/sh
+
+# Storare permission
+termux-setup-storage
 
 pkg upgrade
 # Required packages
 pkg install -y git python fzf zsh rsync termux-api termux-tools ncurses-utils openssl-tool
 # Optinal packages
 pkg install -y mpd mpc ncmpcpp cava vim ranger starship file yt-dlp eza
-
-# Storare permission
-termux-setup-storage
 
 # Pip packages
 # pip install -U yt-dlp
@@ -32,9 +31,7 @@ chsh -s zsh
 
 # Dotfiles
 git clone --separate-git-dir=$HOME/.cfg https://github.com/SAJIBxD/termux.git tmpdotfiles
-# Copy all files except the .git folder
 cp -a tmpdotfiles/. "$HOME/"
-mv .zshrc $HOME/.config/zsh/
 
 # Cleanup
 rm -rf "$HOME/.git"
