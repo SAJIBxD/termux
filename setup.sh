@@ -37,4 +37,6 @@ cp -a tmpdotfiles/. "$HOME/"
 mv .zshrc $HOME/.config/zsh/
 
 # Cleanup
+rm -rf "$HOME/.git"
+rm -f "$HOME/README.md"
 rm -rf tmpdotfiles
