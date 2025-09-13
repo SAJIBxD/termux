@@ -16,6 +16,9 @@ case "$1" in
   *dood*|*dooood*)
     $extractor_path/doodstream "$1"
     ;;
+  *streamtape*)
+    $extractor_path/streamtape "$1"
+    ;;
   *youtu*)
     $extractor_path/youtube "$1"
     ;;
