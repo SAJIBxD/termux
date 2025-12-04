@@ -1,12 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
-# XDG Base Directory Specification
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
+#Editor
+if (( $+commands[nvim] )); then
+  export EDITOR=nvim
+fi
 
+# Clean home
+export LESSHISTFILE="${XDG_STATE_HOME}"/lesshst
 
-## Variables
+# Program config
 # ani-cli
-ANI_CLI_DOWNLOAD_DIR="/sdcard/Download/"
+export ANI_CLI_DOWNLOAD_DIR="/sdcard/Download/"

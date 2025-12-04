@@ -8,16 +8,18 @@ if (( $+commands[nvim] )); then
 fi
 
 # exa as a replacement for colors
-if (( $+commands[exa] )); then
-  alias ls='exa --icons'        # replace ls
+if (( $+commands[eza] )); then
+  alias ls='eza --icons'        # replace ls
   alias l='ls -lbF'             # list, size, type
   alias ll='ls -la'             # long list
   alias llm='ll --sort=modified' # long list, sort
   alias la='ls -lbhHigUmuSa'    # all list
   alias lx='ls -lbhHigUmuSa@'   # all + extended list
-  alias tree='exa --tree --level=2' # tree view
-  alias lS='exa -1'             # one column, just names
+  alias tree='eza --tree --level=2' # tree view
+  alias lS='eza -1'             # one column, just names
 fi
+
+alias cat='bat --paging=never --plain'
 
 # Common aliases
 alias h="history"
@@ -27,6 +29,20 @@ alias up="pkg upgrade"
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | termux-clipboard-set"
 
+#cf 
+alias ojt='oj t -c "python main.py"'
+alias ojd='oj d'
+oj() {
+    case "$1" in
+        test)
+            file=${2:-main.py}
+            command oj t -c "python $file"
+            ;;
+        *)
+            command oj "$@"
+            ;;
+    esac
+}
 # Youtube downloader
 alias ytdl="yt-dlp"
 alias ytadl="ytdl --embed-thumbnail --sponsorblock-remove default -f 140 -P '/sdcard/Music/'"
@@ -36,10 +52,12 @@ alias xdl="wget -r --no-parent --reject 'index.html*'"
 
 # Convert files
 alias convert2hevc='ffmpeg -stats_period 10 -i "$1" -c:v libx265 -vtag hvc1 -c:a copy "new-$1"'
+
 # Quick edit
-alias zshrc="vim ~/.zshrc"
+alias zshrc="vim ~/.config/zsh/.zshrc"
 alias vimrc="vim ~/.vim/vimrc"
 alias aliases="vim ~/.config/zsh/aliases"
+alias exports="vim ~/.config/zsh/exports"
 
 # Clean up
 alias wget="wget --hsts-file='~/.cache/wget-hsts'"
