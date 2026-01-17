@@ -29,6 +29,14 @@ alias up="pkg upgrade"
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | termux-clipboard-set"
 
+#git sub forder clone
+gsc() {
+  git clone --filter=blob:none --no-checkout "$1" &&
+  cd "${2:-${1:t:r}}" &&
+  git sparse-checkout init --cone &&
+  git sparse-checkout set "$3" &&
+  git checkout
+}
 #cf 
 alias ojt='oj t -c "python main.py"'
 alias ojd='oj d'
